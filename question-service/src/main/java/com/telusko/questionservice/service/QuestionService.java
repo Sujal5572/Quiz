@@ -36,16 +36,17 @@ public class QuestionService {
         return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
 
     }
+    public ResponseEntity<List<Integer>> getQuestionsForQuiz(String categoryName, Integer numQuestions) {
+        List<Integer> questions = questionDao.findRandomQuestionsByCategory(categoryName, numQuestions);
+        return new ResponseEntity<>(questions, HttpStatus.OK);
+    }
 
     public ResponseEntity<String> addQuestion(Question question) {
         questionDao.save(question);
         return new ResponseEntity<>("success",HttpStatus.CREATED);
     }
 
-    public ResponseEntity<List<Integer>> getQuestionsForQuiz(String categoryName, Integer numQuestions) {
-        List<Integer> questions = questionDao.findRandomQuestionsByCategory(categoryName, numQuestions);
-        return new ResponseEntity<>(questions, HttpStatus.OK);
-    }
+
 
     public ResponseEntity<List<QuestionWrapper>> getQuestionsFromId(List<Integer> questionIds) {
         List<QuestionWrapper> wrappers = new ArrayList<>();
