@@ -11,6 +11,7 @@ CREATE TABLE question (
     category VARCHAR(50)
 );
 
+
 -- Insert sample data
 INSERT INTO question (id, category, difficultylevel, option1, option2, option3, option4, question_title, right_answer) VALUES
 (1, 'JAVA', 'Easy', 'class', 'interface', 'extends', 'implements', 'Which Java keyword is used to create a subclass?', 'extends'),
